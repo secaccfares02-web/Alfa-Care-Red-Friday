@@ -1,0 +1,595 @@
+:root {
+  --red-darkest: #2b0202;
+  --red-deep: #590606;
+  --red-primary: #a30b0b;
+  --red-bright: #dc1414;
+  --red-glow: #ff2a2a;
+  --gold-light: #fff099;
+  --gold-primary: #ffd700;
+  --gold-dark: #c59b27;
+  --white: #ffffff;
+  --surface-card: rgba(70, 5, 5, 0.88);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Cairo', sans-serif;
+  background: radial-gradient(circle at top center, #8a0808 0%, #3d0303 55%, #1f0101 100%);
+  color: var(--white);
+  min-height: 100vh;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* ==================== الهيدر ==================== */
+.site-header {
+  background: linear-gradient(90deg, #2b0202 0%, #680707 50%, #2b0202 100%);
+  border-bottom: 2px solid var(--gold-primary);
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.6);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.header-container {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.lab-brand {
+  display: flex;
+  align-items: center;
+}
+
+.lab-logo-img {
+  height: 68px;
+  width: auto;
+  max-width: 260px;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.45));
+}
+
+.red-friday-badge {
+  background: linear-gradient(135deg, #b80c0c 0%, #4a0303 100%);
+  border: 2px solid var(--gold-primary);
+  padding: 6px 16px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 0 18px rgba(255, 42, 42, 0.6);
+}
+
+.rf-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--gold-primary);
+  box-shadow: 0 0 8px var(--gold-primary);
+  animation: pulseDot 1.4s infinite ease-in-out;
+}
+
+.rf-word-red {
+  font-weight: 900;
+  font-size: 1.2rem;
+  color: var(--gold-primary);
+  letter-spacing: 1px;
+}
+
+.rf-word-friday {
+  font-weight: 900;
+  font-size: 1.2rem;
+  color: var(--white);
+  letter-spacing: 1px;
+}
+
+@keyframes pulseDot {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.4); opacity: 0.6; }
+}
+
+/* ==================== المحتوى الرئيسي ==================== */
+.main-container {
+  max-width: 880px;
+  margin: 28px auto;
+  padding: 0 16px;
+}
+
+.prizes-showcase-box {
+  background: linear-gradient(180deg, rgba(110, 8, 8, 0.92) 0%, rgba(50, 3, 3, 0.95) 100%);
+  border: 2px solid var(--gold-primary);
+  border-radius: 22px;
+  padding: 28px 22px;
+  text-align: center;
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.55), inset 0 0 25px rgba(255, 215, 0, 0.12);
+  position: relative;
+}
+
+.box-ribbon {
+  display: inline-block;
+  background: linear-gradient(90deg, var(--gold-dark), var(--gold-primary), var(--gold-dark));
+  color: #2b0202;
+  font-weight: 900;
+  font-size: 0.92rem;
+  padding: 5px 20px;
+  border-radius: 999px;
+  margin-bottom: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.showcase-title {
+  font-size: 1.55rem;
+  font-weight: 900;
+  color: var(--gold-light);
+  margin-bottom: 6px;
+}
+
+.showcase-subtitle {
+  font-size: 0.95rem;
+  color: #ffcccc;
+  margin-bottom: 20px;
+}
+
+.prizes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 12px;
+}
+
+.prize-pill {
+  background: linear-gradient(135deg, rgba(168, 12, 12, 0.85), rgba(82, 4, 4, 0.95));
+  border: 1.5px solid rgba(255, 215, 0, 0.65);
+  border-radius: 14px;
+  padding: 11px 14px;
+  font-weight: 800;
+  font-size: 0.95rem;
+  color: var(--white);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.prize-pill:hover {
+  transform: translateY(-3px);
+  border-color: var(--gold-primary);
+}
+
+.free-pill {
+  border-color: var(--gold-primary);
+  background: linear-gradient(135deg, #9e0b0b, #470202);
+}
+
+/* ==================== زرار استلم هديتك ==================== */
+.cta-section {
+  text-align: center;
+  margin: 32px 0;
+}
+
+.gold-red-btn {
+  cursor: pointer;
+  border: 3px solid var(--gold-primary);
+  background: linear-gradient(135deg, #e51212 0%, #8f0606 55%, #c59b27 100%);
+  color: var(--gold-light);
+  font-family: 'Cairo', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 900;
+  padding: 16px 48px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  box-shadow: 0 0 28px rgba(255, 215, 0, 0.5), 0 10px 24px rgba(0, 0, 0, 0.65);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  animation: btnPulse 2s infinite;
+}
+
+.gold-red-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 38px rgba(255, 215, 0, 0.85), 0 12px 28px rgba(0, 0, 0, 0.7);
+}
+
+.gold-red-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  animation: none;
+}
+
+@keyframes btnPulse {
+  0%, 100% { box-shadow: 0 0 22px rgba(255, 215, 0, 0.45), 0 8px 20px rgba(0, 0, 0, 0.6); }
+  50% { box-shadow: 0 0 38px rgba(255, 215, 0, 0.85), 0 12px 28px rgba(255, 30, 30, 0.5); }
+}
+
+.cta-hint {
+  margin-top: 10px;
+  font-size: 0.88rem;
+  color: #ffcccc;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* ==================== أنيميشن الكوبونات المتلخبطة ==================== */
+.shuffle-stage {
+  text-align: center;
+  margin: 28px 0;
+  padding: 28px 16px;
+  background: rgba(60, 4, 4, 0.8);
+  border: 2px dashed var(--gold-primary);
+  border-radius: 20px;
+}
+
+.stage-heading {
+  font-size: 1.3rem;
+  color: var(--gold-primary);
+  margin-bottom: 24px;
+}
+
+.shuffle-deck {
+  position: relative;
+  height: 190px;
+  max-width: 380px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.shuffle-card {
+  position: absolute;
+  width: 240px;
+  height: 135px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #c70f0f, #5e0505);
+  border: 2.5px solid var(--gold-primary);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold-light);
+}
+
+.shuffle-card span {
+  font-size: 0.78rem;
+  letter-spacing: 2px;
+  opacity: 0.85;
+}
+
+.shuffle-card strong {
+  font-size: 1.25rem;
+  margin-top: 6px;
+}
+
+.card-1 { animation: shuffleOne 0.65s infinite alternate ease-in-out; }
+.card-2 { animation: shuffleTwo 0.65s infinite alternate ease-in-out; }
+.card-3 { animation: shuffleThree 0.65s infinite alternate ease-in-out; }
+.card-4 { animation: shuffleFour 0.65s infinite alternate ease-in-out; }
+.card-5 { animation: shuffleFive 0.65s infinite alternate ease-in-out; }
+
+@keyframes shuffleOne {
+  0% { transform: translate(-80px, -18px) rotate(-14deg) scale(0.92); }
+  100% { transform: translate(75px, 16px) rotate(12deg) scale(1.04); }
+}
+@keyframes shuffleTwo {
+  0% { transform: translate(85px, -14px) rotate(15deg) scale(0.94); }
+  100% { transform: translate(-70px, 18px) rotate(-13deg) scale(1.02); }
+}
+@keyframes shuffleThree {
+  0% { transform: translate(0px, -28px) rotate(-6deg) scale(1.05); }
+  100% { transform: translate(0px, 26px) rotate(8deg) scale(0.95); }
+}
+@keyframes shuffleFour {
+  0% { transform: translate(-55px, 24px) rotate(10deg) scale(0.9); }
+  100% { transform: translate(60px, -22px) rotate(-11deg) scale(1.03); }
+}
+@keyframes shuffleFive {
+  0% { transform: translate(50px, 20px) rotate(-9deg) scale(0.95); }
+  100% { transform: translate(-50px, -20px) rotate(9deg) scale(1.06); }
+}
+
+/* ==================== منطقة الخربشة ==================== */
+.scratch-stage {
+  margin: 26px 0;
+}
+
+.scratch-card-wrapper {
+  background: linear-gradient(180deg, #5c0505, #2b0202);
+  border: 2.5px solid var(--gold-primary);
+  border-radius: 22px;
+  padding: 22px;
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: center;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
+}
+
+.scratch-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.scratch-badge {
+  background: var(--gold-primary);
+  color: #2b0202;
+  font-weight: 900;
+  font-size: 0.85rem;
+  padding: 4px 12px;
+  border-radius: 999px;
+}
+
+.scratch-progress-text {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--gold-light);
+}
+
+.progress-bar-track {
+  width: 100%;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--gold-dark), var(--gold-primary));
+  transition: width 0.15s ease;
+}
+
+.scratch-canvas-container {
+  position: relative;
+  width: 100%;
+  height: 210px;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 2px solid var(--gold-primary);
+  background: radial-gradient(circle, #fff8db 0%, #f6d365 100%);
+  user-select: none;
+  touch-action: none;
+}
+
+.prize-underlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  color: #4a0303;
+  z-index: 1;
+}
+
+.underlay-icon {
+  font-size: 2.3rem;
+}
+
+.underlay-label {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #7a0909;
+}
+
+.underlay-prize-name {
+  font-size: 1.45rem;
+  font-weight: 900;
+  color: #a30b0b;
+  text-align: center;
+  margin-top: 4px;
+}
+
+#scratchCanvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  cursor: grab;
+}
+
+.scratch-instruction {
+  margin-top: 12px;
+  font-size: 0.9rem;
+  color: #ffdddd;
+  font-weight: 600;
+}
+
+/* ==================== مستطيل النتيجة والتنويه والفورم ==================== */
+.winner-section {
+  margin-top: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.congrats-box {
+  background: linear-gradient(135deg, #7d0808 0%, #3a0202 100%);
+  border: 3px solid var(--gold-primary);
+  border-radius: 22px;
+  padding: 26px 22px;
+  text-align: center;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.65);
+}
+
+.congrats-crown {
+  font-size: 2.6rem;
+  margin-bottom: 6px;
+}
+
+.congrats-heading {
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: var(--white);
+  margin-bottom: 18px;
+}
+
+.highlight-prize {
+  color: var(--gold-primary);
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
+
+.branch-notice-box {
+  background: rgba(25, 1, 1, 0.85);
+  border: 2px solid #ff4d4d;
+  border-right: 6px solid var(--gold-primary);
+  border-radius: 14px;
+  padding: 16px 18px;
+  text-align: right;
+}
+
+.notice-title {
+  color: var(--gold-primary);
+  font-weight: 900;
+  font-size: 1.15rem;
+  margin-bottom: 4px;
+}
+
+.notice-text {
+  color: #fff3f3;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+/* ==================== مستطيل تسجيل البيانات ==================== */
+.registration-box {
+  background: linear-gradient(180deg, rgba(80, 6, 6, 0.95), rgba(38, 2, 2, 0.98));
+  border: 2px solid var(--gold-primary);
+  border-radius: 22px;
+  padding: 26px 22px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+}
+
+.form-title {
+  font-size: 1.35rem;
+  font-weight: 900;
+  color: var(--gold-primary);
+  text-align: center;
+  margin-bottom: 4px;
+}
+
+.form-subtitle {
+  font-size: 0.9rem;
+  color: #ffcccc;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: var(--gold-light);
+  font-size: 0.95rem;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px 15px;
+  border-radius: 12px;
+  border: 1.5px solid rgba(255, 215, 0, 0.5);
+  background: rgba(20, 1, 1, 0.85);
+  color: var(--white);
+  font-family: 'Cairo', sans-serif;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-group input:focus {
+  border-color: var(--gold-primary);
+  box-shadow: 0 0 12px rgba(255, 215, 0, 0.35);
+}
+
+.readonly-group input {
+  background: rgba(255, 215, 0, 0.12);
+  color: var(--gold-primary);
+  font-weight: 800;
+}
+
+.form-message {
+  padding: 12px 16px;
+  border-radius: 12px;
+  margin-bottom: 16px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.form-message.error {
+  background: rgba(220, 20, 20, 0.25);
+  border: 1.5px solid #ff4d4d;
+  color: #ffd6d6;
+}
+
+.form-message.success {
+  background: rgba(16, 185, 129, 0.2);
+  border: 1.5px solid #34d399;
+  color: #d1fae5;
+}
+
+.submit-gold-btn {
+  width: 100%;
+  cursor: pointer;
+  border: 2px solid var(--gold-light);
+  background: linear-gradient(90deg, #d4af37 0%, #ffd700 50%, #b8860b 100%);
+  color: #2b0202;
+  font-family: 'Cairo', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 900;
+  padding: 14px;
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.submit-gold-btn:hover {
+  transform: translateY(-2px);
+}
+
+.submit-gold-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.site-footer {
+  text-align: center;
+  padding: 24px 16px;
+  color: #fca5a5;
+  font-size: 0.85rem;
+  border-top: 1px solid rgba(255, 215, 0, 0.2);
+  margin-top: 40px;
+}
+
+@media (max-width: 600px) {
+  .showcase-title { font-size: 1.25rem; }
+  .gold-red-btn { font-size: 1.3rem; padding: 14px 32px; }
+  .congrats-heading { font-size: 1.3rem; }
+}

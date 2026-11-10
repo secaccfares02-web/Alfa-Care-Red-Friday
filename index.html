@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>عروض Red Friday - استلم هديتك من المعمل</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- شريط الهيدر العلوي: لوجو المعمل يمين وكلمة Red Friday شمال -->
+  <header class="site-header">
+    <div class="header-container">
+      <!-- اليمين: لوجو المعمل بكامل المساحة بدون دائرة وبدون كلام جانبي -->
+      <div class="lab-brand">
+        <img src="logo.png" alt="لوجو المعمل" class="lab-logo-img" />
+      </div>
+
+      <!-- اليسار: كلمة Red Friday -->
+      <div class="red-friday-badge" dir="ltr">
+        <span class="rf-dot"></span>
+        <span class="rf-word-red">RED</span>
+        <span class="rf-word-friday">FRIDAY</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-container">
+    <!-- مستطيل الجوائز والعروض المتاحة في الأول -->
+    <section class="prizes-showcase-box" aria-label="الجوائز والعروض المتاحة">
+      <div class="box-ribbon">🔥 عروض وهدايا Red Friday الحصرية 🔥</div>
+      <h1 class="showcase-title">الجوائز والعروض المتاحة داخل الكوبونات</h1>
+      <p class="showcase-subtitle">اضغط على زر استلام الهدية بالأسفل واخربش الكوبون لتربح إحدى هذه الهدايا الفورية:</p>
+
+      <div class="prizes-grid">
+        <div class="prize-pill free-pill">🎁 تحليل نقرس مجاني</div>
+        <div class="prize-pill free-pill">🎁 تحليل سكر مجاني</div>
+        <div class="prize-pill free-pill">🎁 تحليل كالسيوم مجاني</div>
+        <div class="prize-pill free-pill">🎁 تحليل وظائف الكلي creat مجاني</div>
+        <div class="prize-pill free-pill">🎁 تحليل انزيمات الكبد Alt مجاني</div>
+        <div class="prize-pill discount-50">⭐ خصم 50% علي تحليل صورة دم كاملة</div>
+        <div class="prize-pill discount-50">⭐ خصم 50% علي تحليل فيتامين د</div>
+        <div class="prize-pill discount-general">🏷️ خصم 10% علي أي تحليل</div>
+        <div class="prize-pill discount-general">🏷️ خصم 15% علي اي تحليل</div>
+        <div class="prize-pill discount-general">🏷️ خصم 20% علي اي تحليل</div>
+      </div>
+    </section>
+
+    <!-- منطقة الزر الرئيسي (أحمر في دهبي) -->
+    <section class="cta-section" id="ctaSection">
+      <button type="button" id="claimBtn" class="gold-red-btn">
+        <span class="btn-sparkle">✨</span>
+        <span>استلم هديتك</span>
+        <span class="btn-sparkle">🎁</span>
+      </button>
+      <p class="cta-hint">فرصة واحدة لكل رقم هاتف — اخربش الكوبون بنسبة 75% على الأقل لاحتساب الجائزة</p>
+    </section>
+
+    <!-- منطقة أنيميشن لخبطة الكوبونات -->
+    <section id="shuffleStage" class="shuffle-stage hidden" aria-live="polite">
+      <h2 class="stage-heading">جاري خلط الكوبونات واختيار هديتك...</h2>
+      <div class="shuffle-deck">
+        <div class="shuffle-card card-1"><span>RED FRIDAY</span><strong>🎁 كوبون هدية</strong></div>
+        <div class="shuffle-card card-2"><span>RED FRIDAY</span><strong>🎁 كوبون هدية</strong></div>
+        <div class="shuffle-card card-3"><span>RED FRIDAY</span><strong>🎁 كوبون هدية</strong></div>
+        <div class="shuffle-card card-4"><span>RED FRIDAY</span><strong>🎁 كوبون هدية</strong></div>
+        <div class="shuffle-card card-5"><span>RED FRIDAY</span><strong>🎁 كوبون هدية</strong></div>
+      </div>
+    </section>
+
+    <!-- منطقة كوبون الخربشة (75% لاحتساب الجائزة) -->
+    <section id="scratchStage" class="scratch-stage hidden">
+      <div class="scratch-card-wrapper">
+        <div class="scratch-header">
+          <span class="scratch-badge">كوبون حظك اليوم</span>
+          <span id="scratchPercentText" class="scratch-progress-text">نسبة الخربشة: 0% (المطلوب 75%)</span>
+        </div>
+
+        <div class="progress-bar-track">
+          <div id="scratchProgressBar" class="progress-bar-fill" style="width: 0%"></div>
+        </div>
+
+        <div class="scratch-canvas-container" id="scratchContainer">
+          <!-- طبقة الجائزة الموجودة تحت الخربشة -->
+          <div class="prize-underlay">
+            <div class="underlay-icon">🎉</div>
+            <div class="underlay-label">هديتك هي:</div>
+            <div id="hiddenPrizeTitle" class="underlay-prize-name">---</div>
+          </div>
+          <!-- كانفاس الخربشة -->
+          <canvas id="scratchCanvas"></canvas>
+        </div>
+
+        <p class="scratch-instruction" id="scratchInstruction">
+          حرّك إصبعك أو الماوس فوق الطبقة الذهبية لخربشة الكوبون حتى 75% لفتح الجائزة!
+        </p>
+      </div>
+    </section>
+
+    <!-- مستطيل النتيجة والتنويه واستمارة التسجيل (يظهر بعد إتمام 75% من الخربشة) -->
+    <section id="winnerSection" class="winner-section hidden">
+      <!-- مستطيل مبروك جايزتك + التنويه -->
+      <div class="congrats-box">
+        <div class="congrats-crown">🏆</div>
+        <h2 class="congrats-heading">
+          مبروك جايزتك : <span id="finalPrizeName" class="highlight-prize"></span>
+        </h2>
+
+        <div class="branch-notice-box">
+          <div class="notice-title">⚠️ تنويه !!!</div>
+          <p class="notice-text">
+            العروض في فرع البيطاش الجديد : شارع البيطاش الرئيسي - أول شارع الاندلس والحجاز عمارة رقم 2 امام حلواني بندق - وأعلي مذاق البن البرازيلي
+          </p>
+        </div>
+      </div>
+
+      <!-- مستطيل إدخال الاسم ورقم التليفون لإرسالها إلى Google Sheet -->
+      <div class="registration-box" id="registrationBox">
+        <h3 class="form-title">سجّل بياناتك لتفعيل واستلام هديتك في الفرع</h3>
+        <p class="form-subtitle">يُسمح بهدية واحدة فقط لكل رقم تليفون ولا يمكن تكرار الرقم مرتين</p>
+
+        <form id="claimForm" novalidate>
+          <div class="form-group">
+            <label for="userName">الاسم بالكامل</label>
+            <input
+              type="text"
+              id="userName"
+              name="name"
+              placeholder="اكتب اسمك الثلاثي هنا..."
+              required
+              autocomplete="name"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="userPhone">رقم التليفون (يبدأ بـ 0)</label>
+            <input
+              type="tel"
+              id="userPhone"
+              name="phone"
+              placeholder="01xxxxxxxxx"
+              dir="ltr"
+              maxlength="11"
+              required
+              autocomplete="tel"
+            />
+          </div>
+
+          <div class="form-group readonly-group">
+            <label>الهدية المسجلة لك</label>
+            <input type="text" id="prizeInput" name="prize" readonly />
+          </div>
+
+          <div id="formMessage" class="form-message hidden" role="alert"></div>
+
+          <button type="submit" id="submitBtn" class="submit-gold-btn">
+            <span id="submitBtnText">تأكيد وحفظ الهدية الآن</span>
+          </button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>جميع الحقوق محفوظة © عروض Red Friday - فرع البيطاش الجديد</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
